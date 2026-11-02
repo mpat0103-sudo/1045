@@ -51,27 +51,26 @@ int main()
         print_menu();
         option = read_integer_range("Enter Option: ", 1, 4);
 
-        if (option == 1)
+        switch (option)
         {
-            write_line();
-            write_line("Current goals: " + to_string(goals));
-            goals = read_integer("Enter new goals: ");
-            print_score(goals, behinds);
-        }
-        else if (option == 2)
-        {
-            write_line();
-            write_line("Current behinds: " + to_string(behinds));
-            behinds = read_integer("Enter new behinds: ");
-            print_score(goals, behinds);
-        }
-        else if (option == 3)
-        {
-            print_details(name, goals, behinds);
-        }
-        else
-        {
-            quit = read_boolean("Are you sure you want to quit? [Y/n]: ");
+            case 1:
+                write_line();
+                write_line("Current goals: " + to_string(goals));
+                goals = read_integer("Enter new goals: ");
+                print_score(goals, behinds);
+                break;
+            case 2:
+                write_line();
+                write_line("Current behinds: " + to_string(behinds));
+                behinds = read_integer("Enter new behinds: ");
+                print_score(goals, behinds);
+                break;
+            case 3:
+                print_details(name, goals, behinds);
+                break;
+            case 4:
+                quit = read_boolean("Are you sure you want to quit? [Y/n]: ");
+                break;
         }
     } while (!quit);
 
